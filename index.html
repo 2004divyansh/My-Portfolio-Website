@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Analyst Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000; /* Black background */
+            color: #d1d5db; /* Light grey text */
+        }
+        .glass-effect {
+            background: rgba(10, 10, 10, 0.5); /* Darker glass effect */
+            backdrop-filter: blur(10px);
+        }
+        .section-bg {
+            background-color: #111111; /* Very dark grey for section backgrounds */
+        }
+        .gemini-output p {
+            margin-bottom: 1rem;
+        }
+        .gemini-output h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #f9fafb; /* White headings in output */
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+         .loader {
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-left-color: #3b82f6;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #3b82f6;
+            transition: width 0.3s ease-in-out;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-effect">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white">John Doe</a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="nav-link text-slate-300 hover:text-white transition-colors duration-300">About</a>
+                <a href="#skills" class="nav-link text-slate-300 hover:text-white transition-colors duration-300">Skills</a>
+                <a href="#projects" class="nav-link text-slate-300 hover:text-white transition-colors duration-300">Projects</a>
+                <a href="#threat-analysis" class="nav-link text-slate-300 hover:text-white transition-colors duration-300">Threat Analysis</a>
+                <a href="#contact" class="nav-link text-slate-300 hover:text-white transition-colors duration-300">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-slate-300">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2 text-slate-300 hover:text-white">About</a>
+            <a href="#skills" class="block py-2 text-slate-300 hover:text-white">Skills</a>
+            <a href="#projects" class="block py-2 text-slate-300 hover:text-white">Projects</a>
+            <a href="#threat-analysis" class="block py-2 text-slate-300 hover:text-white">Threat Analysis</a>
+            <a href="#contact" class="block py-2 text-slate-300 hover:text-white">Contact</a>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-[calc(100vh-6rem)] flex items-center">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+                    <span class="text-slate-300">Securing the Digital Frontier.</span><br>
+                    <span class="text-white font-bold">Cyber Security Analyst.</span>
+                </h1>
+                <p class="max-w-3xl mx-auto text-slate-400 text-lg md:text-xl mb-8">
+                    Vigilant and analytical professional dedicated to protecting information systems from threats and vulnerabilities.
+                </p>
+                <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 inline-block transform hover:scale-105">
+                    View My Work
+                </a>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-20 section-bg">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12 items-center max-w-5xl mx-auto">
+                    <div class="md:col-span-1 flex justify-center">
+                         <img src="image.jpg" alt="John Doe Profile Picture" class="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover border-0 border-slate-700 shadow-lg">
+                    </div>
+                    <div class="md:col-span-2 text-center md:text-left">
+                        <h2 class="text-3xl font-bold mb-4 text-white">About Me</h2>
+                        <p class="text-slate-400 text-lg leading-relaxed">
+                            As a dedicated Cyber Security Analyst, I thrive on the challenge of defending networks and data against ever-evolving threats. With a strong foundation in network security, threat intelligence, and incident response, I am passionate about creating resilient security postures. My goal is to leverage my analytical skills and technical expertise to identify vulnerabilities, mitigate risks, and ensure the integrity and confidentiality of digital assets. I am a lifelong learner, constantly updating my knowledge to stay ahead in the dynamic field of cybersecurity.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12 text-white">Core Competencies</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                    <!-- Skill Item -->
+                    <div class="flex flex-col items-center p-6 glass-effect rounded-xl text-center">
+                        <i data-lucide="shield-check" class="w-12 h-12 text-blue-400 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-slate-200">Threat Analysis</h3>
+                    </div>
+                    <!-- Skill Item -->
+                    <div class="flex flex-col items-center p-6 glass-effect rounded-xl text-center">
+                        <i data-lucide="scan-search" class="w-12 h-12 text-blue-400 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-slate-200">Penetration Testing</h3>
+                    </div>
+                    <!-- Skill Item -->
+                    <div class="flex flex-col items-center p-6 glass-effect rounded-xl text-center">
+                       <i data-lucide="siren" class="w-12 h-12 text-blue-400 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-slate-200">Incident Response</h3>
+                    </div>
+                    <!-- Skill Item -->
+                    <div class="flex flex-col items-center p-6 glass-effect rounded-xl text-center">
+                        <i data-lucide="lock" class="w-12 h-12 text-blue-400 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-slate-200">Cryptography</h3>
+                    </div>
+                     <!-- Skill Item -->
+                    <div class="flex flex-col items-center p-6 glass-effect rounded-xl text-center">
+                        <i data-lucide="hard-drive" class="w-12 h-12 text-blue-400 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-slate-200">SIEM Solutions</h3>
+                    </div>
+                    <!-- Skill Item -->
+                    <div class="flex flex-col items-center p-6 glass-effect rounded-xl text-center">
+                       <i data-lucide="network" class="w-12 h-12 text-blue-400 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-slate-200">Network Security</h3>
+                    </div>
+                    <!-- Skill Item -->
+                    <div class="flex flex-col items-center p-6 glass-effect rounded-xl text-center">
+                        <i data-lucide="file-code-2" class="w-12 h-12 text-blue-400 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-slate-200">Python Scripting</h3>
+                    </div>
+                    <!-- Skill Item -->
+                    <div class="flex flex-col items-center p-6 glass-effect rounded-xl text-center">
+                        <i data-lucide="cloud-cog" class="w-12 h-12 text-blue-400 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-slate-200">Cloud Security</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 section-bg">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12 text-white">Featured Projects</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card -->
+                    <div class="glass-effect rounded-xl overflow-hidden flex flex-col">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-semibold mb-2 text-slate-100">Intrusion Detection System</h3>
+                            <p class="text-slate-400 mb-4">
+                                Developed a network-based IDS using Suricata and the ELK stack to monitor network traffic and generate real-time alerts.
+                            </p>
+                        </div>
+                        <div class="p-6 border-t border-slate-700">
+                             <span class="inline-block bg-gray-700 text-gray-300 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Suricata</span>
+                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">ELK Stack</span>
+                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Python</span>
+                        </div>
+                    </div>
+                    <!-- Project Card -->
+                    <div class="glass-effect rounded-xl overflow-hidden flex flex-col">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-semibold mb-2 text-slate-100">Vulnerability Assessment</h3>
+                            <p class="text-slate-400 mb-4">
+                                Conducted a comprehensive vulnerability scan on a corporate network using Nessus, prioritizing risks and providing remediation strategies.
+                            </p>
+                        </div>
+                        <div class="p-6 border-t border-slate-700">
+                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Nessus</span>
+                            <span class="inline-block bg-gray-700 text-gray-300 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Risk Analysis</span>
+                        </div>
+                    </div>
+                    <!-- Project Card -->
+                    <div class="glass-effect rounded-xl overflow-hidden flex flex-col">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-semibold mb-2 text-slate-100">Phishing Campaign Simulation</h3>
+                            <p class="text-slate-400 mb-4">
+                                Executed a phishing simulation for a 500-employee organization. Compiled a report on click rates and recommended training.
+                            </p>
+                        </div>
+                         <div class="p-6 border-t border-slate-700">
+                           <span class="inline-block bg-gray-700 text-gray-300 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Gophish</span>
+                           <span class="inline-block bg-gray-700 text-gray-300 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Security Awareness</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Threat Analysis Section -->
+        <section id="threat-analysis" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl font-bold mb-4 text-white">AI-Powered Threat Analysis</h2>
+                    <p class="text-slate-400 text-lg mb-8">
+                        Enter a cybersecurity topic, threat, or company name to get a real-time threat briefing generated by the Gemini API.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto mb-8">
+                        <input type="text" id="threat-input" placeholder="e.g., 'Log4Shell vulnerability'" class="flex-grow bg-gray-800 border border-slate-600 text-white px-4 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button id="generate-briefing-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300 flex items-center justify-center">
+                            <span class="mr-2">✨ Generate Briefing</span>
+                        </button>
+                    </div>
+                    <div id="briefing-output" class="mt-8 text-left p-6 glass-effect rounded-xl min-h-[10rem] gemini-output">
+                        <div id="loader" class="hidden mx-auto loader"></div>
+                        <p id="placeholder-text" class="text-slate-500 text-center">Your generated threat briefing will appear here...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 section-bg">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-3xl font-bold mb-4 text-white">Get In Touch</h2>
+                    <p class="text-slate-400 text-lg mb-8">
+                        I'm always open to discussing new opportunities and challenges in cybersecurity. Feel free to reach out.
+                    </p>
+                    <a href="mailto:email@example.com" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-colors duration-300 inline-flex items-center">
+                       <i data-lucide="mail" class="w-5 h-5 mr-2"></i> email@example.com
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-slate-800">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-400">
+            <div class="flex justify-center space-x-6 mb-4">
+                 <a href="#" class="hover:text-blue-400 transition-colors duration-300">
+                    <i data-lucide="linkedin" class="w-8 h-8"></i>
+                </a>
+                <a href="#" class="hover:text-blue-400 transition-colors duration-300">
+                    <i data-lucide="github" class="w-8 h-8"></i>
+                </a>
+                <a href="#" class="hover:text-blue-400 transition-colors duration-300">
+                    <i data-lucide="twitter" class="w-8 h-8"></i>
+                </a>
+            </div>
+            <p>&copy; 2024 John Doe. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+        for (const link of mobileMenuLinks) {
+            link.addEventListener('click', () => {
+                 mobileMenu.classList.add('hidden');
+            });
+        }
+
+        // --- Gemini API Feature ---
+        const generateBtn = document.getElementById('generate-briefing-btn');
+        const threatInput = document.getElementById('threat-input');
+        const briefingOutput = document.getElementById('briefing-output');
+        const loader = document.getElementById('loader');
+        const placeholderText = document.getElementById('placeholder-text');
+
+        const apiKey = ""; // Leave this as-is
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+        const generateThreatBriefing = async () => {
+            const query = threatInput.value.trim();
+            if (!query) {
+                briefingOutput.innerHTML = '<p class="text-red-400 text-center">Please enter a topic to generate a briefing.</p>';
+                return;
+            }
+
+            loader.classList.remove('hidden');
+            placeholderText.classList.add('hidden');
+            briefingOutput.innerHTML = '';
+            briefingOutput.appendChild(loader);
+            generateBtn.disabled = true;
+
+            const systemPrompt = `
+                You are a world-class Cyber Security Threat Intelligence Analyst. Your name is "CyberSec Analyst AI".
+                Generate a concise, professional threat briefing based on the user's query.
+                The briefing should be well-structured and easy to read. Include the following sections if applicable:
+                - Overview of the threat/topic.
+                - Potential Impact on an organization.
+                - Recommended Mitigation Strategies or defensive measures.
+                - Recent Developments or News (use your latest knowledge).
+                Format your response using simple HTML like <p> and <h3> for headings. Do not use markdown.
+            `;
+            
+            const userQuery = `Generate a threat briefing on the following topic: ${query}`;
+            
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                tools: [{ "google_search": {} }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                },
+            };
+
+            try {
+                const response = await fetchWithExponentialBackoff(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API call failed with status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    briefingOutput.innerHTML = candidate.content.parts[0].text;
+                } else {
+                    briefingOutput.innerHTML = '<p class="text-red-400 text-center">Failed to generate briefing. The response was empty or malformed.</p>';
+                }
+
+            } catch (error) {
+                console.error("Error generating briefing:", error);
+                briefingOutput.innerHTML = `<p class="text-red-400 text-center">An error occurred while generating the briefing. Please check the console for details.</p>`;
+            } finally {
+                loader.classList.add('hidden');
+                generateBtn.disabled = false;
+            }
+        };
+        
+        async function fetchWithExponentialBackoff(url, options, retries = 5, delay = 1000) {
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (response.status !== 429) { // Not a rate-limiting error
+                        return response;
+                    }
+                } catch (error) {
+                    if (i === retries - 1) throw error;
+                }
+                await new Promise(resolve => setTimeout(resolve, delay * Math.pow(2, i)));
+            }
+            throw new Error('Max retries reached');
+        }
+
+        generateBtn.addEventListener('click', generateThreatBriefing);
+        threatInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                generateThreatBriefing();
+            }
+        });
+
+    </script>
+
+</body>
+</html>
